@@ -16,6 +16,8 @@ public class RedisController {
         return template.opsForValue().get( key );
     }
 
+    public Boolean hasValue( final String key ) { return template.opsForValue().get( key ) != null ; }
+
     public void setValue( final String key, final String value ) {
         template.opsForValue().set( key, value );
         template.expire( key, 30, TimeUnit.SECONDS);
